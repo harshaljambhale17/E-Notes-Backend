@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -64,6 +65,7 @@ public class SecurityConfig {
 		http.csrf(csrf -> csrf.disable())
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers("/api/auth/**", "/api/home","/oauth2/**","/login/**","/api/profile","/api/getUser/**", "/api/about", "/api/unauthorized", "/api/saveUser", "/api/index").permitAll()
+						.requestMatchers(HttpMethod.DELETE, "/api/user/deleteNotes/**").authenticated()
 						.requestMatchers("/user/**").hasRole("USER")
 						.requestMatchers("/admin/**").hasRole("ADMIN")
 						.anyRequest().authenticated())

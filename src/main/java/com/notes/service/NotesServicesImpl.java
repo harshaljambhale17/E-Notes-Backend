@@ -20,6 +20,9 @@ public class NotesServicesImpl implements NotesService{
 	@Autowired
 	private NotesRepository notesRepository;
 
+	@Autowired
+	private ImageServiceImpl imageService;
+
 	private static final String BASE_DIRECTORY = "C:/Users/Harshal PC/Desktop/.vscode/Spring Boot/Project/Major-Project/E-Notes/ENotes-Data";
 
 
@@ -40,28 +43,14 @@ public class NotesServicesImpl implements NotesService{
 
 	@Override
 	public boolean deleteNotes(int id) {
-		
-		Notes notes = notesRepository.findById(id).get();
-		System.out.println(notes);
 
-		if (notes != null) {
-			notesRepository.delete(notes);
-			try {
-				Path imagePath = Paths.get(BASE_DIRECTORY + "/" + notes.getUser().getEmail() + "/" + notes.getFileName());
-				File file = imagePath.toFile();
-
-				if (file.exists()) {
-					file.delete(); // Deletes the file
-					System.out.println("File delete successful");
-				}
-			} catch (Exception e) {
-				System.out.println(e);
-				e.printStackTrace();
-			}
+		try {
+			notesRepository.deleteById(id);
 			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
-		
-		return false;
 	}
 
 	@Override

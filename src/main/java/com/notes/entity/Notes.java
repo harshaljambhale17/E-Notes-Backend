@@ -24,6 +24,10 @@ public class Notes {
 
 	private LocalDate date;
 
+	private String fileURL;
+
+	private String publicId;
+
 	private String userEmail;
 	
 	@ManyToOne
@@ -83,5 +87,21 @@ public class Notes {
 
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
+	}
+
+	public String getFileURL() {
+		return fileURL;
+	}
+
+	public void setFileURL(String fileURL) {
+		this.fileURL = fileURL;
+	}
+
+	public String getPublicId() {
+		return publicId;
+	}
+
+	public void setPublicId(String publicId) {
+		this.publicId = publicId;
 	}
 }
