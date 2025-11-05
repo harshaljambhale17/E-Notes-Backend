@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin("https://e-notes-frontend-k60gbnc2n-harshaljambhale16-gmailcoms-projects.vercel.app")
 public class AdminController {
 
 	 @Autowired

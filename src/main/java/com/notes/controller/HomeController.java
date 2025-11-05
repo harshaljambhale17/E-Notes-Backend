@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")// Ensures all endpoints are under `/api`
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin("https://e-notes-frontend-k60gbnc2n-harshaljambhale16-gmailcoms-projects.vercel.app")
 public class HomeController {
 
 	@Autowired

@@ -23,7 +23,7 @@ import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin("https://e-notes-frontend-k60gbnc2n-harshaljambhale16-gmailcoms-projects.vercel.app")
 public class UserController {
 
 	@Autowired
