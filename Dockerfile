@@ -1,6 +1,6 @@
 # Multi-stage Dockerfile for building and running the Spring Boot app on Render
 # Build stage: use Maven with Temurin 23 to compile and package the app
-FROM maven:3.9.6-eclipse-temurin-23 AS builder
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 WORKDIR /workspace
 
 # Copy pom first to leverage Docker layer caching for dependencies
